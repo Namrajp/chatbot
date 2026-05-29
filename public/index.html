@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot Assistant</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <header class="masthead">
+          <div>
+            <p class="eyebrow">OpenAI helper</p>
+            <h1 id="app-title">Chatbot Assistant</h1>
+          </div>
+          <div class="status-pill" id="status-pill">Ready</div>
+        </header>
+
+        <section class="response-panel" aria-live="polite">
+          <div class="response-header">
+            <span>Response</span>
+            <span id="selected-mode">Summary</span>
+          </div>
+          <pre id="response-output">Your response will appear here.</pre>
+        </section>
+
+        <form class="chat-form" id="chat-form">
+          <div class="field-grid">
+            <label class="field">
+              <span>Task</span>
+              <select id="mode" name="mode">
+                <option value="summary">Summary</option>
+                <option value="ticket">Ticket</option>
+                <option value="resume">Resume</option>
+                <option value="review">Review</option>
+                <option value="translate">Translate</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Prompt</span>
+            <textarea
+              id="prompt"
+              name="prompt"
+              rows="8"
+              placeholder="Paste text, a support ticket, resume bullets, or JavaScript code."
+            ></textarea>
+          </label>
+
+          <div class="actions">
+            <button type="submit" id="submit-button">Send</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
