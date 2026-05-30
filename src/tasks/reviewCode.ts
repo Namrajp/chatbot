@@ -1,6 +1,9 @@
-export async function reviewCode(code, client) {
+import { model } from "../openaiClient.js";
+import type { TaskHandler } from "../types.js";
+
+export const reviewCode: TaskHandler = async (code, client) => {
   const response = await client.responses.create({
-    model: "gpt-5-mini",
+    model,
     input: `
 Review this JavaScript code.
 
@@ -16,4 +19,4 @@ ${code}
   });
 
   return response.output_text;
-}
+};

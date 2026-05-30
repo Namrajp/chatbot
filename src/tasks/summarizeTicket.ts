@@ -1,6 +1,9 @@
-export async function summarizeTicket(ticket, client) {
+import { model } from "../openaiClient.js";
+import type { TaskHandler } from "../types.js";
+
+export const summarizeTicket: TaskHandler = async (ticket, client) => {
   const response = await client.responses.create({
-    model: "gpt-5-mini",
+    model,
     input: `
 Summarize this support ticket.
 
@@ -15,4 +18,4 @@ ${ticket}
   });
 
   return response.output_text;
-}
+};

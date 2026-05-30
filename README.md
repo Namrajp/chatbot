@@ -1,6 +1,6 @@
 # Chatbot Assistant
 
-Simple Express app with a frontend chat area and OpenAI-powered modes for:
+Simple TypeScript/Express app with a ChatGPT-style frontend, server-stored conversation memory, and OpenAI-powered modes for:
 
 - Ticket summaries
 - Resume bullet improvements
@@ -30,15 +30,29 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+Check TypeScript:
+
+```bash
+npm run check
+```
+
 ## API
 
 `POST /api/chat`
 
 ```json
 {
+  "sessionId": "browser-session-id",
   "mode": "summary",
   "prompt": "Text to process"
 }
 ```
 
 Supported modes: `ticket`, `resume`, `review`, `translate`, `summary`.
+
+Conversation history:
+
+- `GET /api/conversations/:sessionId`
+- `DELETE /api/conversations/:sessionId`
+
+Conversation data is stored in `data/conversations.json`, which is ignored by Git.

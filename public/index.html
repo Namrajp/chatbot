@@ -7,53 +7,49 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main class="page-shell">
-      <section class="workspace" aria-labelledby="app-title">
-        <header class="masthead">
-          <div>
-            <p class="eyebrow">OpenAI helper</p>
-            <h1 id="app-title">Chatbot Assistant</h1>
-          </div>
-          <div class="status-pill" id="status-pill">Ready</div>
-        </header>
+    <main class="chat-shell" aria-labelledby="app-title">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">OpenAI helper</p>
+          <h1 id="app-title">Chatbot Assistant</h1>
+        </div>
+        <div class="topbar-actions">
+          <span class="status-pill" id="status-pill">Ready</span>
+          <button class="ghost-button" type="button" id="clear-button">Clear</button>
+        </div>
+      </header>
 
-        <section class="response-panel" aria-live="polite">
-          <div class="response-header">
-            <span>Response</span>
-            <span id="selected-mode">Summary</span>
-          </div>
-          <pre id="response-output">Your response will appear here.</pre>
-        </section>
-
-        <form class="chat-form" id="chat-form">
-          <div class="field-grid">
-            <label class="field">
-              <span>Task</span>
-              <select id="mode" name="mode">
-                <option value="summary">Summary</option>
-                <option value="ticket">Ticket</option>
-                <option value="resume">Resume</option>
-                <option value="review">Review</option>
-                <option value="translate">Translate</option>
-              </select>
-            </label>
-          </div>
-
-          <label class="field">
-            <span>Prompt</span>
-            <textarea
-              id="prompt"
-              name="prompt"
-              rows="8"
-              placeholder="Paste text, a support ticket, resume bullets, or JavaScript code."
-            ></textarea>
-          </label>
-
-          <div class="actions">
-            <button type="submit" id="submit-button">Send</button>
-          </div>
-        </form>
+      <section class="messages" id="messages" aria-live="polite">
+        <article class="empty-state" id="empty-state">
+          <h2>Start a focused chat</h2>
+          <p>Select a task, type a prompt, and the conversation will be remembered on this server.</p>
+        </article>
       </section>
+
+      <form class="composer" id="chat-form">
+        <label class="task-select">
+          <span>Task</span>
+          <select id="mode" name="mode">
+            <option value="summary">Summary</option>
+            <option value="ticket">Ticket</option>
+            <option value="resume">Resume</option>
+            <option value="review">Review</option>
+            <option value="translate">Translate</option>
+          </select>
+        </label>
+
+        <label class="prompt-field">
+          <span>Prompt</span>
+          <textarea
+            id="prompt"
+            name="prompt"
+            rows="1"
+            placeholder="Message Chatbot Assistant..."
+          ></textarea>
+        </label>
+
+        <button class="send-button" type="submit" id="submit-button">Send</button>
+      </form>
     </main>
 
     <script src="/app.js" type="module"></script>

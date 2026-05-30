@@ -1,6 +1,9 @@
-export async function improveResume(resumeText, client) {
+import { model } from "../openaiClient.js";
+import type { TaskHandler } from "../types.js";
+
+export const improveResume: TaskHandler = async (resumeText, client) => {
   const response = await client.responses.create({
-    model: "gpt-5-mini",
+    model,
     input: `
 Improve the following resume bullet points.
 
@@ -16,4 +19,4 @@ ${resumeText}
   });
 
   return response.output_text;
-}
+};

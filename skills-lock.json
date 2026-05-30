@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "python-backend-reviewer": {
+      "source": "modelscope.cn",
+      "sourceType": "well-known",
+      "computedHash": "639dbe680b74acec41617c84757d3463903046cc69573d8d48232c8d73ad2ce1"
+    }
+  }
+}
